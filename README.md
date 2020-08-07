@@ -19,49 +19,42 @@ And you can also save/load to reuse packer to add new sprites. (Below is a demo 
 ## Installing
 
 ```bash
-npm install maxrects-packer --save
+npm install @vanchelo/maxrects-packer --save
 ```
 
 ## Usage
 
-**Note:** *Since version 2.0.0 Max Rects Packer is rewritten in `typescript` and change the import method from old `require("maxrects-packer")` to `require("maxrects-packer").MaxRectsPacker` or more fashioned `import` statement.*
-
-**Note:** *Since version 2.1.0 packer can be fed with any object with `width & height` members, no need to follow `{ width: number, height: number, data: any }` pattern, if you are using `typescript`, that also mean any class extending `MaxRectsPacker.IRectangle`*
-
-**Note:** *Since version 2.1.0 Rectangle class constructor API is changed from `new Rectangle(x, y, width, height, rotated)` to `new Rectangle(width, height, x, y, rotated)`, cos most cases you only need to feed w/h and omit the rest like `new Rectangle(100, 100)` and left `x,y,rotated` to default value.
-
 ```javascript
-let MaxRectsPacker = require("maxrects-packer").MaxRectsPacker;
+let MaxRectsPacker = require('maxrects-packer').MaxRectsPacker;
 const options = {
-    smart: true,
-    pot: true,
-    square: false,
-    allowRotation: true,
-    tag: false,
-    border: 5
+  smart: true,
+  pot: true,
+  square: false,
+  allowRotation: true,
+  tag: false,
+  border: 5,
 }; // Set packing options
 let packer = new MaxRectsPacker(1024, 1024, 2, options); // width, height, padding, options
 
 let input = [ // any object with width & height is OK since v2.1.0
-    {width: 600, height: 20, name: "tree", foo: "bar"},
-    {width: 600, height: 20, name: "flower"},
-    {width: 2000, height: 2000, name: "oversized background", {frameWidth: 500, frameHeight: 500}},
-    {width: 1000, height: 1000, name: "background", color: 0x000000ff},
-    {width: 1000, height: 1000, name: "overlay", allowRotation: true}
+  { width: 600, height: 20, name: 'tree', foo: 'bar' },
+  { width: 600, height: 20, name: 'flower' },
+  { width: 2000, height: 2000, name: 'oversized background', frameWidth: 500, frameHeight: 500 },
+  { width: 1000, height: 1000, name: 'background', color: 0x000000ff },
+  { width: 1000, height: 1000, name: 'overlay', allowRotation: true },
 ];
 
 packer.addArray(input); // Start packing with input array
 packer.next(); // Start a new packer bin
 packer.addArray(input.slice(2)); // Adding to the new bin
 packer.bins.forEach(bin => {
-    console.log(bin.rects);
+  console.log(bin.rects);
 });
 
 // Reuse packer
 let bins = packer.save();
 packer.load(bins);
 packer.addArray(input);
-
 ```
 
 ## Test

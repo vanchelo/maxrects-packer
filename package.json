@@ -1,5 +1,5 @@
 {
-  "name": "maxrects-packer",
+  "name": "@vanchelo/maxrects-packer",
   "version": "2.6.0",
   "description": "A max rectangle 2d bin packer for packing glyphs or images into multiple sprite-sheet/atlas",
   "main": "dist/maxrects-packer.js",
@@ -19,7 +19,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://soimy@github.com/soimy/maxrects-packer.git"
+    "url": "git+https://vanchelo@github.com/vanchelo/maxrects-packer.git"
   },
   "keywords": [
     "spritesheet",
@@ -32,9 +32,9 @@
   "author": "YM Shen <soimy@163.com> (http://github.com/soimy)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/soimy/maxrects-packer/issues"
+    "url": "https://github.com/vanchelo/maxrects-packer/issues"
   },
-  "homepage": "https://github.com/soimy/maxrects-packer#readme",
+  "homepage": "https://github.com/vanchelo/maxrects-packer#readme",
   "devDependencies": {
     "@types/jest": "^24.9.1",
     "@types/node": "^12.12.26",

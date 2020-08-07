@@ -13,4 +13,3 @@ test
 jest.config.js
 rollup.config.js
 .travis.yml
-TODO
